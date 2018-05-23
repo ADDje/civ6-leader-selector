@@ -1,0 +1,1912 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: sans-serif;
+  background-color: #04416e;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: minion;
+  src: url(../fonts/MinionPro-Regular.otf);
+}
+
+@font-face {
+  font-family: myriad;
+  src: url(../fonts/MyriadPro-Regular.otf);
+}
+
+@font-face {
+  font-family: notosans;
+  src: url(../fonts/NotoSansCJKtc-Regular.otf);
+}
+
+.MainMenu {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12.5%;
+  width: 1024px;
+  text-align: center;
+}
+
+.Body {
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1008px;
+  min-height: 100vh;
+  box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.45), -12px 0 8px -4px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .Body {
+    width: 100%;
+  }
+  .MainMenu {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.BGVid {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+  background: url(../images/bg.png);
+  background-size: cover;
+}
+
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #background-video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #background-video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 880px) {
+  #background-video {
+    display: none;
+  }
+}
+
+.BodySection {
+  width: 100%;
+  background: rgba(4, 41, 66, 0.68);
+  border-left: 2px solid rgba(32, 59, 91, 0.68);
+  border-right: 2px solid rgba(32, 59, 91, 0.68);
+}
+
+.Header {
+  padding-top: 20px;
+  padding-bottom: 4px;
+  text-align: center;
+}
+
+.Title {
+  height: 54px;
+  padding: 2px;
+}
+
+.TitleContent {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.TitleText {
+  font-family: minion;
+  font-variant: small-caps;
+  text-align: center;
+  color: transparent;
+  background-color: white;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 10px rgba(20, 148, 180, 0.9);
+}
+
+.TitleTitle {
+  font-size: 28pt;
+}
+
+.TitleBack {
+  position: absolute;
+  right: -4px;
+  top: 4px;
+}
+
+.TitleCog {
+  position: absolute;
+  left: -20px;
+  top: 4px;
+}
+
+.TitleBack .OrnateButton, .TitleCog .OrnateButton {
+  padding-right: 24px;
+}
+
+.BoundaryLight {
+  width: 100%;
+  height: 38px;
+  border: 10px solid;
+  padding: 15px;
+  border-image: url(../images/borders/border1s.png) 19 round;
+  border-image-width: 22px;
+  position: relative;
+}
+
+.HeaderGameName {
+  border: 12px solid;
+  border-image: url(../images/borders/border2s.png) 12 round;
+}
+
+@media (max-width: 880px) {
+  .MenuLogo img {
+    width: 100%;
+  }
+  .HeaderGameName img {
+    width: 100%;
+  }
+}
+
+.BarTop {
+  width: 100%;
+  height: 6px;
+  background: url(../images/borders/top.png);
+}
+
+.BarBot {
+  width: 100%;
+  height: 6px;
+  background: url(../images/borders/bottom.png);
+}
+
+.Lobby, .Room {
+  min-height: 733px;
+}
+
+.LobbyButtons {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.PlayerList {
+  width: 99.8%;
+  color: white;
+  font-family: myriad;
+  letter-spacing: 1px;
+}
+
+.PlayerListHeaders {
+  margin-top: 4px;
+}
+
+.PlayerListHeader {
+  text-shadow: 1px 1px 1px black;
+  padding: 4px 2px 2px 8px;
+  position: relative;
+  background: linear-gradient(to bottom, #062c41 0%,#0e4152 100%);
+  border: 3px solid #0a4c58;
+  border-radius: 2px;
+  outline: 2px solid #002a3b;
+}
+
+.PlayerListFooters {
+  height: 14px;
+  background: #0b384b;
+  background: radial-gradient(circle at bottom right, transparent 12px, #0b384b 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 12px, #0b384b 0) bottom left;
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.PlayerListFooter {
+  height: 12px;
+  width: calc(100% - 4px);
+  margin-left: 2px;
+  margin-right: 2px;
+  background: #062238;
+  background: radial-gradient(circle at bottom right, transparent 12px, #06263d 12px, #07253f 17px, #052742 26px, #052742 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 12px, #06263d 12px, #07253f 17px, #052742 26px, #052742 0) bottom left;
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+.PlayerListFooter::after {
+  content: '';
+  height: 16px;
+  width: calc(100% - 24px);
+  background: linear-gradient(to top, #06263d 0%, #07253f 5px, transparent 14px);
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+}
+
+.PlayerListFooterSplitter {
+  width: calc(100% - 6px);
+  height: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-top: 1px solid #0f3444;
+  border-bottom: 1px solid #0f3444;
+  border-left: 2px solid #0b384b;
+  border-right: 2px solid #0b384b;
+  background: repeating-linear-gradient(to right, #0f3444, #0f3444 20px, #062238 20px, #062238 40px);
+}
+
+.Players {
+  background: #062238;
+  margin-left: -12px;
+  margin-right: -12px;
+  border-left: 2px solid #0b384b;
+  border-right: 2px solid #0b384b;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+}
+
+.Player {
+  height: 50px;
+  margin-left: -2px;
+  margin-right: -2px;
+  border-bottom: 2px solid #0b384b;
+}
+
+.Player > div {
+  margin-top: 5px;
+}
+
+.isPlayer {
+  position: relative;
+}
+
+.isPlayer::after {
+  position: absolute;
+  width: 100%;
+  border: 25px solid;
+  border-image: url('../images/borders/player_border.png') 25 round;
+  pointer-events: none;
+}
+
+.RoomItems, .Players {
+  height: 150px;
+}
+
+.RoomItems {
+  margin-left: -15px;
+  margin-right: -15px;
+  border-radius: 0 0 8px 8px;
+  border: 2px solid rgba(32, 59, 91, 0.68);
+}
+
+.RoomListSplitter {
+  margin: 1px 0 1px 0;
+  width: 100%;
+  height: 4px;
+  background: url(../images/borders/thinsplitter.png);
+}
+
+.RoomItemCol {
+  border-right: 2px solid rgba(32, 59, 91, 0.68);
+}
+
+.RoomItem {
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  position: relative;
+  background: linear-gradient(to bottom, rgba(4,37,56,1) 0%,rgba(8,51,67,1) 100%);
+  margin-left: 0;
+  margin-right: 0;
+  border: 3px solid #0b4553;
+  border-radius: 5px;
+  outline: 1px solid #002a3b;
+}
+
+.RoomPW {
+  cursor: pointer;
+}
+
+.RoomLower {
+  margin: 6px 10px 0 10px
+}
+
+.RoomLowerLeft {
+  position: relative;
+}
+
+.RollButton {
+  border: none;
+  background: none;
+  height: 107px;
+  width: 287px;
+  background: url(../images/rolldice_button.png);
+  position: absolute;
+  top: 100px;
+  left: 25%;
+}
+
+.RollButton:hover {
+  background-position: 574px;
+}
+
+.RollButton:active {
+  background-position: 287px;
+}
+
+.RoomSetup {
+  min-height: 150px;
+  width: calc(100% - 8px);
+  margin-top: 4px;
+  margin-left: 4px;
+  border: 12px solid;
+  border-image: url(../images/borders/border2s.png) 12 round;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.RoomSetupInner {
+  margin-left: -10px;
+  margin-right: -10px;
+  border-left: 2px solid rgba(49,156,158,0.1);
+  border-right: 2px solid rgba(49,156,158,0.1);
+}
+
+.RoomSetupFooter {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, transparent 0%, rgba(49,156,158,0.18) 47%, rgba(49,156,158,0.22) 50%, rgba(49,156,158,0.18) 53%, transparent 100%);
+  position: absolute;
+  bottom: -6px;
+}
+
+.RoomSetupBody {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.RoomSetupHeader {
+  height: 23px;
+  width: 100%;
+  background: linear-gradient(to right, transparent 0%, rgba(49,156,158,0.18) 47%, rgba(49,156,158,0.22) 50%, rgba(49,156,158,0.18) 53%, transparent 100%);
+  border-top: 2px solid rgba(49,156,158,0.1);
+  border-bottom: 2px solid rgba(49,156,158,0.1);
+}
+
+.RoomSetupHeaderText {
+  font-family: myriad;
+  letter-spacing: 1px;
+  font-size: 1.05em;
+  font-weight: bold;
+  color: #319c9e;
+  text-shadow: 0 0 3px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.Modal {
+  min-height: 150px;
+  min-width: 300px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.ModalOpen {
+  overflow: hidden;
+}
+
+.ModalBorder {
+  height: 100%;
+  width: 100%;
+  border: 55px solid;
+  border-image: url(../images/borders/modal_border.png) 55 round;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+}
+
+.ModalBox {
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  position: relative;
+  left: 4px;
+  top: 4px;
+}
+
+.ModalHeader {
+  height: 32px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,18,42,1) 0%,rgba(7,59,96,1) 100%);
+  font-size: 20pt;
+}
+
+.ModalSplitter {
+  height: 6px;
+  width: 100%;
+  background: url(../images/modal_splitter.png);
+}
+
+.ModalBody {
+  width: 100%;
+  height: calc(100% - 38px);
+  background: linear-gradient(to bottom, rgba(186,211,218,1) 0%,rgba(136,184,198,1) 100%);
+  padding: 4px;
+}
+
+.ModalFooter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+}
+
+.ModalFooter > div {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.ModalInputGroup label {
+  display: block;
+  margin-top: 12px;
+}
+
+.ModalInput {
+  font-family: myriad;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px black;
+  padding: 2px;
+  width: 250px;
+  border-radius: 4px;
+  border: 2px solid rgba(32, 59, 91, 0.4);
+  background: linear-gradient(to bottom, rgba(58,115,135,0.5) 0%,rgba(58,115,135,0.5) 35%,rgba(58,115,135,0) 100%);
+}
+
+.InputError {
+  outline: auto 2px red;
+}
+
+.InputWarning {
+  outline: auto 2px yellow;
+}
+
+.InputWarningText {
+  position: absolute;
+  font-family: myriad;
+}
+
+.CreateGame, .EnterPassword, .Preferences {
+  text-align: center;
+}
+
+.PrefsLocal, .PrefsVic, .PrefsDLC {
+  margin-top: 10px;
+}
+
+.PrefsInput, .PrefsVic {
+  display: inline-block;
+}
+
+.PrefsInput {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.PrefsVic {
+  position: relative;
+  height: 50px;
+  width: 200px;
+}
+
+.PrefsVic > label {
+  position: absolute;
+  top: 0;
+}
+
+.PrefsDLC > label {
+  margin: 6px;
+}
+
+.ReactModal__Overlay--after-open {
+  background-color: rgba(0,0,0,0.6) !important;
+  z-index: 100 !important;
+}
+
+.ReactModal__Content--after-open {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  top: 50% !important;
+  left: 50% !important;
+  bottom: 0 !important;
+  right: 0 !important;
+}
+
+@media (max-width: 880px) {
+  .ReactModal__Content--after-open {
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+.ConfirmButton {
+  background: none;
+  border: none;
+  font-size: 1em;
+}
+
+.ConfirmButton div {
+  height: 36px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.ConfirmButtonCol {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.ConfirmButtonL {
+  width: 26px;
+  background: url(../images/buttons/CB_L_N.png);
+}
+.ConfirmButtonCol:hover > .ConfirmButtonL {
+  background: url(../images/buttons/CB_L_H.png);
+}
+.ConfirmButtonCol:active > .ConfirmButtonL {
+  background: url(../images/buttons/CB_L_A.png);
+}
+.ConfirmButtonR {
+  width: 26px;
+  background: url(../images/buttons/CB_R_N.png);
+}
+.ConfirmButtonCol:hover > .ConfirmButtonR {
+  background: url(../images/buttons/CB_R_H.png);
+}
+.ConfirmButtonCol:active > .ConfirmButtonR {
+  background: url(../images/buttons/CB_R_A.png);
+}
+.ConfirmButtonM {
+  min-width: 20px;
+  width: calc(100% - 52px);
+  text-align: center;
+  vertical-align: top;
+  color: white;
+  position: relative;
+  background: url(../images/buttons/CB_M_N.png);
+}
+.ConfirmButtonCol:hover > .ConfirmButtonM {
+  background: url(../images/buttons/CB_M_H.png);
+}
+.ConfirmButtonCol:active > .ConfirmButtonM {
+  background: url(../images/buttons/CB_M_A.png);
+}
+.ConfirmButtonMText {
+  font-family: notosans;
+  letter-spacing: 0.5pt;
+  position: relative;
+  top: 8px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.OrnateButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1em;
+}
+
+.OrnateButtonText {
+  height: 38px;
+  width: auto;
+  text-align: left;
+  font-family: minion;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  line-height: 35px;
+  font-size: 1.4em;
+  color: #77cce0;
+  border-top: 2px solid rgba(86,140,193,0.25);
+  border-bottom: 2px solid rgba(86,140,193,0.25);
+  background: rgba(6,80,136,0.6);
+  display: inline-block;
+  margin-left: 40px;
+  text-shadow: 0 0 5px #000;
+  position: relative;
+  pointer-events: none;
+  user-select: none;
+}
+
+.OrnateButtonText::before {
+  content: "";
+  background-image: url('../images/menu_end.png');
+  background-size: cover;
+  position: absolute;
+  width: 24px;
+  height: 31px;
+  left: -24px;
+  top: 1px;
+  transform: scale(-1,1.2);
+  filter: FlipH;
+}
+
+.OrnateButtonText::after {
+  content: "";
+  background-image: url('../images/menu_end.png');
+  background-size: cover;
+  position: absolute;
+  width: 24px;
+  height: 31px;
+  right: -24px;
+  top: 1px;
+  transform: scale(1,1.2);
+}
+
+.OrnateButton:hover > .OrnateButtonText {
+  border-top: 2px solid rgba(86,140,193,0.15);
+  border-bottom: 2px solid rgba(86,140,193,0.15);
+  background: rgba(6,80,136,0.4);
+}
+
+.OrnateButton:hover > .OrnateButtonText::before, .OrnateButton:hover > .OrnateButtonText::after {
+  background-image: url('../images/menu_end_hover.png');
+}
+
+.OrnateButton:active > .OrnateButtonText {
+  border-top: 2px solid rgba(86,140,193,0.35);
+  border-bottom: 2px solid rgba(86,140,193,0.35);
+  background: rgba(16,110,166,0.8);
+}
+
+.OrnateButton:active > .OrnateButtonText::before, .OrnateButton:active > .OrnateButtonText::after {
+  background-image: url('../images/menu_end_active.png');
+}
+
+.OrnateButtonText img {
+  width: 34px;
+  margin-top: -2px;
+  filter: drop-shadow( 0 0 5px rgba(0,0,0,0.4) );
+}
+
+.MenuList {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.MenuTop img, .MenuBottom img {
+  height: 16px;
+  width: 10px;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.MenuBottom img {
+  transform: scaleY(-1);
+  filter: FlipV;
+}
+
+.MenuItems {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.MenuItem {
+  margin: 0 0 0 4px;
+  height: 38px;
+  border-left: 2px solid #568cc1;
+  cursor: pointer;
+}
+
+.MenuItem:hover > .MenuText {
+  border-top: 2px solid rgba(86,140,193,0.15);
+  border-bottom: 2px solid rgba(86,140,193,0.15);
+  background: rgba(6,80,136,0.4);
+}
+
+.MenuItem:hover > .MenuText::after {
+  background-image: url('../images/menu_end_hover.png');
+}
+
+.MenuItem:active > .MenuText {
+  border-top: 2px solid rgba(86,140,193,0.35);
+  border-bottom: 2px solid rgba(86,140,193,0.35);
+  background: rgba(16,110,166,0.8);
+}
+
+.MenuItem:active > .MenuText::after {
+  background-image: url('../images/menu_end_active.png');
+}
+
+.MenuText {
+  text-align: left;
+  font-family: myriad;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  color: white;
+  border-top: 2px solid rgba(86,140,193,0.25);
+  border-bottom: 2px solid rgba(86,140,193,0.25);
+  padding: 3px 0 3px 10px;
+  width: 250px;
+  background: rgba(6,80,136,0.6);
+  display: inline-block;
+  margin-top: 4px;
+  text-shadow: 0 0 5px black;
+  position: relative;
+}
+
+.MenuText::after {
+  content: "";
+  background-image: url('../images/menu_end.png');
+  background-size: cover;
+  position: absolute;
+  width: 24px;
+  height: 31px;
+  left: 250px;
+  top: -2px;
+}
+
+.VicTypeContainer {
+  position: relative;
+}
+
+.VicTypeDrop {
+  position: absolute;
+  z-index: 2;
+  margin-top: 1px;
+  margin-left: -2px;
+  width: 66px;
+  min-height: 40px;
+  border: 10px solid;
+  border-image: url('../images/borders/dropdown_border.png') 10 round;
+  background: radial-gradient(ellipse at center, rgba(8,29,48,1) 0%,rgba(5,25,36,1) 100%);
+  box-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
+.VicTypeDropClick {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+}
+
+.VicTypeDropInner {
+  width: 60px;
+  min-height: 36px;
+  height: 100%;
+  margin: -7px;
+  padding: 2px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.VicType {
+  height: 40px;
+  width: 60px;
+  padding: 2px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, rgba(11,40,74,1) 0%,rgba(14,66,103,1) 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,0.6), inset 0 1px 1px rgba(50,150,255,0.1);
+}
+
+.VicType:hover {
+  background: linear-gradient(to bottom, rgba(12,75,129,1) 0%,rgba(55,126,154,1) 100%);
+}
+
+.VicType:hover .VicTypeBorder {
+  background: linear-gradient(to bottom, rgba(12,52,78,1) 0%,rgba(15,78,122,1) 100%);
+}
+
+.VicType:hover .VicDropDown {
+  background: radial-gradient(ellipse at center, rgba(12,75,129,1) 27%,rgba(55,126,154,1) 100%);
+}
+
+.VicType:active {
+  background: linear-gradient(to bottom, rgba(33,73,108,1) 0%,rgba(133,175,191,1) 100%);
+}
+
+.VicType:active .VicTypeBorder {
+  background: linear-gradient(to bottom, rgba(15,51,83,1) 0%,rgba(43,103,153,1) 100%);
+}
+
+.VicType:active .VicDropDown {
+  background: radial-gradient(ellipse at center, rgba(33,73,108,1) 35%,rgba(133,175,191,1) 100%);
+}
+
+.VicTypeBorder {
+  height: 36px;
+  width: 56px;
+  border-radius: 5px;
+  border: 1px solid rgba(1,29,50,0.4);
+  background: linear-gradient(to bottom, rgba(11,40,74,1) 0%,rgba(14,66,103,1) 100%);
+}
+
+.VicIcon {
+  height: 29px;
+  width: 29px;
+  top: 6px;
+  left: 8px;
+  border-radius: 100%;
+  background: radial-gradient(ellipse at center, rgba(8,44,76,1) 32%,rgba(6,34,56,1) 90%,rgba(3,29,52,1) 100%);
+  position: absolute;
+}
+
+.VicIcon img {
+  height: 35px;
+  width: 35px;
+  top: -2px;
+  left: -3px;
+  position: absolute;
+  user-select: none;
+}
+
+.VicDropDown {
+  height: 16px;
+  width: 16px;
+  bottom: 2px;
+  right: 2px;
+  border-radius: 3px;
+  border-top: 1px solid rgba(1,29,50,0.4);
+  border-left:  1px solid rgba(1,29,50,0.4);
+  background: radial-gradient(ellipse at center, rgba(11,40,74,1) 20%,rgba(14,66,103,1) 100%);
+  position: absolute;
+}
+
+.VicDropDown img {
+  top: 4px;
+  left: 1px;
+  position: absolute;
+  user-select: none;
+}
+
+.VicDrop {
+  width: 56px;
+}
+
+.VicDrop .VicTypeBorder {
+  width: 52px;
+}
+
+.VicDrop .VicIcon {
+  left: 13px;
+}
+
+.VicTypeOther {
+  height: 40px;
+  width: 60px;
+  padding: 2px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, rgba(11,40,74,1) 0%,rgba(14,66,103,1) 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
+.VicTypeOther .VicIcon {
+  left: 15px;
+}
+
+.ToolTipOuter {
+  height: 32px;
+  min-width: 50px;
+  background: rgba(0,0,0,0.3);
+  background:	radial-gradient(circle at top left, transparent 5px, rgba(0,0,0,0.3) 0) top left,
+              radial-gradient(circle at top right, transparent 5px, rgba(0,0,0,0.3) 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, rgba(0,0,0,0.3) 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, rgba(0,0,0,0.3) 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.CivLeader {
+  height: 40px;
+  width: calc(100% - 6px);
+  padding: 2px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, rgba(11,40,74,1) 0%,rgba(14,66,103,1) 100%);
+  position: relative;
+  box-shadow: 0 0 5px rgba(0,0,0,0.6), inset 0 1px 1px rgba(50,150,255,0.1);
+}
+
+.CivLeaderInner {
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  border-radius: 5px;
+  border: 1px solid rgba(1,29,50,0.4);
+  background: linear-gradient(to bottom, rgba(11,40,74,1) 0%,rgba(14,66,103,1) 100%);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.CivLeaderCircle {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  background:#52483b;
+  display: inline-block;
+  position: relative;
+  top: -7px;
+  box-shadow: 0 0 3px #000, inset 0 1px 2px rgba(255,255,220,0.4), inset 0 -1px 2px rgba(10,10,0,0.8);
+}
+
+.CivLeaderCircleInner {
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  border-radius: 100%;
+  background: #040e1a;
+  box-shadow: 0 0 4px #000, inset 0 0 3px #000;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.CivLeaderCircle img {
+  height: calc(100% + 1px);
+  width: calc(100% + 1px);
+  border-radius: 100%;
+  position: absolute;
+  top: -2px;
+  left: -1px;
+}
+
+.CivLeaderCiv img {
+  height: 100%;
+  width: 100%;
+  top: -1px;
+  left: 0;
+}
+
+.CivLeaderText {
+  position: absolute;
+  top: 9px;
+  left: 100px;
+}
+
+.PlayerName {
+  height: 40px;
+  width: 100%;
+  padding: 2px;
+  border-radius: 5px;
+  background: linear-gradient(to right, rgba(16,105,135,1) 0%,rgba(10,53,85,1) 64%);
+  position: relative;
+  box-shadow: 0 0 5px rgba(0,0,0,0.6), inset 0 1px 1px rgba(50,150,255,0.1);
+}
+
+.PlayerNameInner {
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  border-radius: 5px;
+  border: 1px solid rgba(1,29,50,0.4);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.PlayerNameBar {
+  height: 17px;
+  width: calc(100% - 2px);
+  margin-left: 1px;
+  margin-top: 1px;
+  text-align: center;
+  border-radius: 5px;
+  background: linear-gradient(to right, rgba(19,82,100,1) 0%,rgba(10,50,75,1) 100%);
+  box-shadow: 0 0 4px rgba(0,0,0,0.4), inset -1px -1px 8px rgba(120,220,255,0.3), inset 0 5px 15px rgba(120,220,255,0.3);
+}
+
+.PlayerNameText {
+  text-shadow: 1px 1px 1px black;
+  font-size: 0.9em;
+  padding-top: 1px;
+}
+
+.PlayerNameHost {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  border: 1px solid rgba(1,29,50,0.4);
+  left: 5px;
+  top: 14px;
+  position: absolute;
+  background: linear-gradient(to right, rgba(16,105,135,1) 0%,rgba(10,53,85,1) 300%);
+}
+
+.PlayerNameHostInner {
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  border: 1px solid rgba(1,29,50,0.4);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  text-align: center;
+}
+
+.PlayerNameHost img {
+  width: calc(100% - 3px);
+  margin-top: -5px;
+}
+
+.PlayerNameStatus {
+  text-shadow: 1px 1px 1px black;
+  font-size: 0.85em;
+  left: 30px;
+  position: absolute;
+}
+
+.PlayerNameLight {
+  position: absolute;
+  top: 0;
+  left: 3px;
+}
+
+.ToolTip {
+  height: 30px;
+  width: calc(100% - 2px);
+  background: #d1d5e0;
+  background:	radial-gradient(circle at top left, transparent 5px, #d1d5e0 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #d1d5e0 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #d1d5e0 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #d1d5e0 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  top: 1px;
+  left: 1px;
+  position: absolute;
+}
+
+.ToolTipBorder {
+  height: 24px;
+  width: calc(100% - 6px);
+  background: #8fabb7;
+  background:	radial-gradient(circle at top left, transparent 4px, #8fabb7 0) top left,
+              radial-gradient(circle at top right, transparent 4px, #8fabb7 0) top right,
+              radial-gradient(circle at bottom right, transparent 4px, #8fabb7 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 4px, #8fabb7 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  top: 3px;
+  left: 3px;
+  position: absolute;
+}
+
+.ToolTipInner {
+  height: 22px;
+  width: calc(100% - 2px);
+  background: #d1d5e0;
+  background:	radial-gradient(circle at top left, transparent 4px, #d1d5e0 0) top left,
+              radial-gradient(circle at top right, transparent 4px, #d1d5e0 0) top right,
+              radial-gradient(circle at bottom right, transparent 4px, #d1d5e0 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 4px, #d1d5e0 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  top: 1px;
+  left: 1px;
+  position: absolute;
+}
+
+.ToolTipText {
+  height: 22px;
+  overflow: hidden;
+  color: #0f1d28;
+  text-shadow: 0 0 1px rgba(0,0,0,0.15);
+  text-align: center;
+  font-family: myriad;
+  font-size: 1.05em;
+  line-height: 25px;
+}
+
+.ToolTipText::first-letter {
+  text-transform: capitalize;
+}
+
+.ToolTipClear {
+  background: none !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+}
+
+.ToolTipClear::after {
+  display: none !important;
+}
+
+.ChatBox {
+  height: 308px;
+  width: 456px;
+  background: #0b384b;
+  background: radial-gradient(circle at top left, transparent 12px, #0b384b 0) top left,
+              radial-gradient(circle at top right, transparent 12px, #0b384b 0) top right,
+              radial-gradient(circle at bottom right, transparent 12px, #0b384b 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 12px, #0b384b 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+  font-family: myriad;
+}
+
+.ChatBoxInner {
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  background: #072a46;
+  background: radial-gradient(circle at top left, transparent 12px, #04273d 12px, #07253f 17px, #072a46 26px, #072a46 0) top left,
+              radial-gradient(circle at top right, transparent 12px, #04273d 12px, #07253f 17px, #072a46 26px, #072a46 0) top right,
+              radial-gradient(circle at bottom right, transparent 12px, #04273d 12px, #07253f 17px, #072a46 26px, #072a46 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 12px, #04273d 12px, #07253f 17px, #072a46 26px, #072a46 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  top: 2px;
+  left: 2px;
+  position: absolute;
+}
+
+.ChatBoxShadowTop {
+  height: 16px;
+  width: calc(100% - 24px);
+  background: linear-gradient(to bottom, #04273d 0%, #07253f 5px, transparent 14px);
+  position: absolute;
+  left: 12px;
+}
+
+.ChatBoxShadowLeft {
+  height: calc(100% - 24px);
+  width: 16px;
+  background: linear-gradient(to right, #04273d 0%, #07253f 5px, transparent 14px);
+  position: absolute;
+  top: 12px;
+}
+
+.ChatBoxShadowBottom {
+  height: 16px;
+  width: calc(100% - 24px);
+  background: linear-gradient(to top, #04273d 0%, #07253f 5px, transparent 14px);
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+}
+
+.ChatBoxShadowRight {
+  height: calc(100% - 24px);
+  width: 16px;
+  background: linear-gradient(to left, #04273d 0%, #07253f 5px, transparent 14px);
+  position: absolute;
+  right: 0;
+  top: 12px;
+}
+
+.ChatBoxHeader {
+  height: 35px;
+  width: 100%;
+  text-align: center;
+}
+
+.ChatBoxHeaderText {
+  font-family: minion;
+  font-variant: small-caps;
+  font-size: 1.5em;
+  text-align: center;
+  color: #348990;
+  text-shadow: 0 0 3px rgba(0,0,0,0.6);
+  line-height: 42px;
+}
+
+.ChatBoxHeaderIcon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  background: #0f3444;
+  top: 9px;
+  background: radial-gradient(circle at top left, transparent 9px, #0f3444 0) top left,
+              radial-gradient(circle at top right, transparent 9px, #0f3444 0) top right,
+              radial-gradient(circle at bottom right, transparent 9px, #0f3444 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 9px, #0f3444 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  transform: scale(1.3,1);
+}
+
+.ChatBoxHeaderIconInner {
+  height: calc(100% - 8px);
+  width: calc(100% - 8px);
+  position: absolute;
+  background: #072a46;
+  top: 4px;
+  left: 4px;
+  background: radial-gradient(circle at top left, transparent 6px, #072a46 0) top left,
+              radial-gradient(circle at top right, transparent 6px, #072a46 0) top right,
+              radial-gradient(circle at bottom right, transparent 6px, #072a46 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 6px, #072a46 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.CBHIL {
+  left: 18px;
+}
+
+.CBHIR {
+  right: 18px;
+}
+
+.ChatBoxSplitter {
+  width: 100%;
+  height: 4px;
+  border-top: 1px solid #0f3444;
+  border-bottom: 1px solid #0f3444;
+  background: repeating-linear-gradient(to right, #0f3444, #0f3444 20px, transparent 20px, transparent 40px);
+}
+
+.ChatBoxBody {
+  width: 100%;
+  height: calc(100% - 39px);
+}
+
+.ChatMessages {
+  height: calc(100% - 40px);
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
+.ChatMessageName {
+  text-shadow: 0 0 3px black;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.ChatMessageText {
+  color: #64aeeb;
+  font-size: 0.9em;
+  display: inline-block;
+}
+
+.ChatInput {
+  height: 24px;
+  width: calc(100% - 30px);
+  padding: 2px;
+  border-radius: 6px;
+  background: linear-gradient(to bottom, #0d293f 30%, #0b3859 100%);
+  box-shadow: 0 0 3px rgba(0,0,0,0.9), inset 0 1px 1px rgba(50,150,255,0.1), inset 0 -1px 1px rgba(50,150,255,0.1);
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+
+.ChatInputInner {
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  border-radius: 6px;
+  border: 1px solid rgba(1,29,50,0.4);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.ChatInputText {
+  height: 100%;
+  width: calc(100% - 44px);
+  position: absolute;
+  left: 22px;
+  border: 0;
+  background: linear-gradient(to bottom, rgba(5,31,48,1) 0%,rgba(4,43,72,1) 100%);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4), inset 0 -1px 2px rgba(0,0,0,0.1);
+  font-size: 0.9em;
+}
+
+.Navigation {
+  text-align: center;
+}
+
+.NavigationItems {
+  padding-top: 4px;
+}
+
+.NavButtonBorder {
+  background: none;
+  border: none;
+  font-size: 1em;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: relative;
+}
+
+.NavButton {
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}
+
+.NavButtonInnerBorder {
+  height: calc(100% - 6px);
+  width: calc(100% - 6px);
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+.NavButtonInner {
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}
+
+.NavActive {
+  height: 34px;
+  width: 252px;
+  background: #003442;
+  background:	radial-gradient(circle at top left, transparent 6px, #003442 0) top left,
+              radial-gradient(circle at top right, transparent 6px, #003442 0) top right,
+              radial-gradient(circle at bottom right, transparent 6px, #003442 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 6px, #003442 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.NavActive .NavButton {
+  background: #069696;
+  background:	radial-gradient(circle at top left, transparent 5px, #069696 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #069696 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #069696 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #069696 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavActive .NavButtonInnerBorder {
+  background: #007d83;
+  background:	radial-gradient(circle at top left, transparent 5px, #007d83 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #007d83 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #007d83 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #007d83 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavActive .NavButtonInner {
+  background: #d1d5e0;
+  background:	radial-gradient(circle at top left, transparent 5px, #069696 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #069696 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #069696 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #069696 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavInactive {
+  height: 30px;
+  width: 250px;
+  background: #002640;
+  background:	radial-gradient(circle at top left, transparent 5px, #002640 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #002640 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #002640 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #002640 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  margin-bottom: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.NavInactive .NavButton {
+  background: #10495a;
+  background:	radial-gradient(circle at top left, transparent 5px, #10495a 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #10495a 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #10495a 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #10495a 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavInactive .NavButtonInnerBorder {
+  background: #0d4d57;
+  background:	radial-gradient(circle at top left, transparent 4px, #0d4d57 0) top left,
+              radial-gradient(circle at top right, transparent 4px, #0d4d57 0) top right,
+              radial-gradient(circle at bottom right, transparent 4px, #0d4d57 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 4px, #0d4d57 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavInactive .NavButtonInner {
+  background: #0f4452;
+  background:	radial-gradient(circle at top left, transparent 4px, #0f4452 0) top left,
+              radial-gradient(circle at top right, transparent 4px, #0f4452 0) top right,
+              radial-gradient(circle at bottom right, transparent 4px, #0f4452 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 4px, #0f4452 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavButtonShadowLeft {
+  height: calc(100% - 8px);
+  width: 32px;
+  background: linear-gradient(to right, #04273d 0, #07253f 5px, transparent 20px);
+  position: absolute;
+  top: 4px;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.NavButtonShadowLeft::before {
+  content: '';
+  height: 4px;
+  width: 28px;
+  background: linear-gradient(to right, #04273d 0, #07253f 5px, transparent 20px);
+  position: absolute;
+  top: -4px;
+  left: 3px;
+  z-index: 1;
+}
+
+.NavButtonShadowLeft::after {
+  content: '';
+  height: 4px;
+  width: 28px;
+  background: linear-gradient(to right, #04273d 0, #07253f 5px, transparent 20px);
+  position: absolute;
+  bottom: -4px;
+  left: 3px;
+  z-index: 1;
+}
+
+.NavButtonShadowRight {
+  height: calc(100% - 8px);
+  width: 32px;
+  background: linear-gradient(to left, #04273d 0, #07253f 5px, transparent 20px);
+  position: absolute;
+  top: 4px;
+  right: 0;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.NavButtonShadowRight::before {
+  content: '';
+  height: 4px;
+  width: 28px;
+  background: linear-gradient(to left, #04273d 0, #07253f 5px, transparent 20px);
+  position: absolute;
+  top: -4px;
+  right: 3px;
+  z-index: 1;
+}
+
+.NavButtonShadowRight::after {
+  content: '';
+  height: 4px;
+  width: 28px;
+  background: linear-gradient(to left, #04273d 0, #07253f 5px, transparent 20px);
+  position: absolute;
+  bottom: -4px;
+  right: 3px;
+  z-index: 1;
+}
+
+.NavButtonShadowBottom {
+  height: 100%;
+  width: calc(100% - 10px);
+  background: linear-gradient(to bottom, #fff 0%, #093154 12px, #093154 16px, transparent 100%);
+  position: absolute;
+  left: 5px;
+  z-index: 1;
+  opacity: 0.2;
+}
+
+
+.NavButtonShadowTop {
+  height: 24px;
+  width: calc(100% - 6px);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, #04273d 5px, #07253f 8px, transparent 20px);
+  position: absolute;
+  left: 3px;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.NavButtonShadowTop::before {
+  content: '';
+  height: 20px;
+  width: 3px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1) -5px, #04273d 2px, #07253f 5px, transparent 17px);
+  position: absolute;
+  left: -3px;
+  top: 5px;
+}
+
+.NavButtonShadowTop::after {
+  content: '';
+  height: 20px;
+  width: 3px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1) -5px, #04273d 2px, #07253f 5px, transparent 17px);
+  position: absolute;
+  right: -3px;
+  top: 5px;
+}
+
+.NavButtonHover {
+  opacity: 0;
+  height: 28px;
+  width: calc(100% - 8px);
+  background: linear-gradient(to bottom, rgba(0,161,173,1) 0%,rgba(18,132,132,1) 21%,rgba(17,114,114,1) 44%,rgba(18,122,122,1) 60%,rgba(28,198,200,1) 100%);
+  position: absolute;
+  left: 4px;
+  z-index: 2;
+}
+
+.NavButtonHover::before {
+  content: '';
+  height: calc(100% - 8px);
+  width: 4px;
+  background: linear-gradient(to bottom, rgba(0,161,173,1) 0%,rgba(18,132,132,1) 21%,rgba(17,114,114,1) 44%,rgba(18,122,122,1) 60%,rgba(28,198,200,1) 100%);
+  position: absolute;
+  top: 4px;
+  left: -4px;
+  z-index: 2;
+}
+
+.NavButtonHover::after {
+  content: '';
+  height: calc(100% - 8px);
+  width: 4px;
+  background: linear-gradient(to bottom, rgba(0,161,173,1) 0%,rgba(18,132,132,1) 21%,rgba(17,114,114,1) 44%,rgba(18,122,122,1) 60%,rgba(28,198,200,1) 100%);
+  position: absolute;
+  top: 4px;
+  right: -4px;
+  z-index: 2;
+}
+
+.NavInactive:hover .NavButtonHover {
+  opacity: 0.2;
+}
+
+.NavInactive:hover .NavButton {
+  background: #11797a;
+  background:	radial-gradient(circle at top left, transparent 5px, #11797a 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #11797a 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #11797a 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #11797a 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavButtonActive {
+  opacity: 0;
+  height: 28px;
+  width: calc(100% - 8px);
+  background: linear-gradient(to bottom, rgba(0,161,173,1) 0%,rgba(18,132,132,1) 21%,rgba(17,114,114,1) 44%,rgba(18,122,122,1) 60%,rgba(28,198,200,1) 100%);
+  position: absolute;
+  left: 4px;
+  z-index: 2;
+}
+
+.NavButtonActive::before {
+  content: '';
+  height: calc(100% - 8px);
+  width: 4px;
+  background: linear-gradient(to bottom, rgba(0,161,173,1) 0%,rgba(18,132,132,1) 21%,rgba(17,114,114,1) 44%,rgba(18,122,122,1) 60%,rgba(28,198,200,1) 100%);
+  position: absolute;
+  top: 4px;
+  left: -4px;
+  z-index: 2;
+}
+
+.NavButtonActive::after {
+  content: '';
+  height: calc(100% - 8px);
+  width: 4px;
+  background: linear-gradient(to bottom, rgba(0,161,173,1) 0%,rgba(18,132,132,1) 21%,rgba(17,114,114,1) 44%,rgba(18,122,122,1) 60%,rgba(28,198,200,1) 100%);
+  position: absolute;
+  top: 4px;
+  right: -4px;
+  z-index: 2;
+}
+
+.NavInactive:active .NavButtonActive {
+  opacity: 0.4;
+}
+
+.NavButtonIcon {
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  background: #007d83;
+  top: 6px;
+  background: radial-gradient(circle at top left, transparent 5px, #007d83 0) top left,
+              radial-gradient(circle at top right, transparent 5px, #007d83 0) top right,
+              radial-gradient(circle at bottom right, transparent 5px, #007d83 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 5px, #007d83 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.NavButtonIconInner {
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  position: absolute;
+  background: #069696;
+  top: 2px;
+  left: 2px;
+  background: radial-gradient(circle at top left, transparent 3px, #069696 0) top left,
+              radial-gradient(circle at top right, transparent 3px, #069696 0) top right,
+              radial-gradient(circle at bottom right, transparent 3px, #069696 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 3px, #069696 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  transform: scale(0.5,0.5);
+}
+
+.NBIL {
+  left: 6px;
+}
+
+.NBIR {
+  right: 6px;
+}
+
+.NavButtonText {
+  font-family: minion;
+  font-variant: small-caps;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.NavActive .NavButtonText {
+  color: #19395f;
+  font-size: 1.8em;
+  line-height: 29px;
+  text-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+.NavInactive .NavButtonText {
+  color: #319c9e;
+  line-height: 24px;
+  text-shadow: 0 0 5px #000;
+}
+
+.InputBox {
+  height: 22px;
+  width: 296px;
+  border-radius: 6px;
+  border: 1px solid #001930;
+  background: linear-gradient(to bottom, #05253e 0%, #18466a 100%);
+  box-shadow: 0 0 3px rgba(0,0,0,0.6), inset 0 1px 2px rgba(46,122,184,0.2), inset 0 -1px 2px rgba(46,122,184,0.2);
+  position: relative;
+}
+
+.InputBox::before {
+  content: '';
+  height: 100%;
+  width: 1px;
+  background: rgba(0,13,38,0.6);
+  position: absolute;
+  right: 21px;
+}
+
+.InputBoxLabel {
+  height: calc(100% - 6px);
+  width: calc(100% - 28px);
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(to bottom, #02223b 0%, #082d4a 100%);
+  box-shadow: 0 -1px 1px rgba(46,122,184,0.1);
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+.InputBoxLabel::before {
+  content: '';
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(to bottom, #072642 0%, #083556 100%);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}
+
+.InputBoxLabelText {
+  color: white;
+  font-family: myriad;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  line-height: 16px;
+  text-align: center;
+  text-shadow: 0 0 3px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.InputBoxType {
+  height: calc(100% - 6px);
+  width: 15px;
+  border-radius: 0 3px 3px 0;
+  background: rgba(2,34,59,0.6);
+  box-shadow: 0 -1px 1px rgba(46,122,184,0.1);
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.InputBoxType::before {
+  content: '';
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(to bottom, #072642 0%, #083556 100%);
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+.CheckBoxLabel {
+  position: relative;
+}
+
+.CheckBoxLabel input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.CheckBoxLabel input[type="checkbox"]:focus + .InputBox {
+  outline: auto 2px Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
+.CheckBox {
+  height: 17px;
+  width: 17px;
+  background: url('../images/checkbox.png') 0 top no-repeat;
+  position: absolute;
+  right: 1px;
+  top: -1px;
+  z-index: 0;
+}
+
+.InputBox:hover {
+  background: linear-gradient(to bottom, #154f7d 0%, #128ba8 100%);
+}
+
+.InputBox:hover .InputBoxLabel, .InputBox:hover .InputBoxType {
+  background: linear-gradient(to bottom, #00325d 0%, #00476e 100%);
+}
+
+.InputBox:hover .InputBoxLabel::before, .InputBox:hover .InputBoxType::before {
+  background: linear-gradient(to bottom, #0c3352 0%, #0d446d 100%);
+}
+
+.InputBox:hover::before {
+  background: linear-gradient(to bottom, #064475 0%, #004f6c 100%);
+}
+
+.InputBox:active {
+  background: linear-gradient(to bottom, #0c5685 0%, #64b1bb 100%);
+}
+
+.InputBox:active .InputBoxLabel, .InputBox:active .InputBoxType {
+  background: linear-gradient(to bottom, #003762 0%, #115c7b 100%);
+}
+
+.InputBox:active .InputBoxLabel::before, .InputBox:active .InputBoxType::before {
+  background: linear-gradient(to bottom, #0d3865 0%, #1a5887 100%);
+}
+
+.InputBox:active::before {
+  background: linear-gradient(to bottom, #064473 0%, #004151 100%);
+}
+
+.InputBox:active .CheckBox {
+  background: url('../images/checkbox.png') -17px top no-repeat;
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox {
+  background: linear-gradient(to bottom, #3a73a0 0%, #7aaab8 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox .InputBoxLabel, .CheckBoxLabel input[type="checkbox"]:checked + .InputBox .InputBoxType {
+  background: linear-gradient(to bottom, #003057 0%, #0b3e5d 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox .InputBoxLabel::before, .CheckBoxLabel input[type="checkbox"]:checked + .InputBox .InputBoxType::before {
+  background: linear-gradient(to bottom, #0e3252 0%, #084770 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox::before {
+  background: linear-gradient(to bottom, #104a78 0%, #0c3d4b 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox .CheckBox {
+  background: url('../images/checkbox.png') -17px top no-repeat;
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:hover {
+  background: linear-gradient(to bottom, #487da7 0%, #96c4d1 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:hover .InputBoxLabel, .CheckBoxLabel input[type="checkbox"]:checked + .InputBox:hover .InputBoxType {
+  background: linear-gradient(to bottom, #043e64 0%, #285b7a 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:hover .InputBoxLabel::before, .CheckBoxLabel input[type="checkbox"]:checked + .InputBox:hover .InputBoxType::before {
+  background: linear-gradient(to bottom, #16436a 0%, #216393 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:hover::before {
+  background: linear-gradient(to bottom, #2c678f 0%, #305f6f 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:hover .CheckBox {
+  background: url('../images/checkbox.png') -34px top no-repeat;
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:active {
+  background: linear-gradient(to bottom, #649bc4 0%, #b7d7e2 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:active .InputBoxLabel, .CheckBoxLabel input[type="checkbox"]:checked + .InputBox:active .InputBoxType {
+  background: linear-gradient(to bottom, #0b416d 0%, #477990 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:active .InputBoxLabel::before, .CheckBoxLabel input[type="checkbox"]:checked + .InputBox:active .InputBoxType::before {
+  background: linear-gradient(to bottom, #165075 0%, #4886ad 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:active::before {
+  background: linear-gradient(to bottom, #2d648d 0%, #3b5c6f 100%);
+}
+
+.CheckBoxLabel input[type="checkbox"]:checked + .InputBox:active .CheckBox {
+  background: url('../images/checkbox.png') -34px top no-repeat;
+}
+
+.CivSelect > .CheckBoxLabel {
+  margin-left: 4px;
+  margin-right: 4px;
+}
